@@ -32,7 +32,7 @@ export class AuthService {
 
   public async login(body: LoginDto): Promise<string | never> {
     const { email, password }: LoginDto = body;
-    const user: User = await this.repository.findOne({ where: { email } });
+    const user: User = await this.repository.findOneBy({ where: { email } });
 
     if (!user) {
       throw new HttpException('No user found', HttpStatus.NOT_FOUND);
