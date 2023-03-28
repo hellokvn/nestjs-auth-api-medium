@@ -23,7 +23,7 @@ export class AuthHelper {
 
   // Get User by User ID we get from decode()
   public async validateUser(decoded: any): Promise<User> {
-    return this.repository.findOne(decoded.id);
+    return this.repository.findOneBy({id: decoded.id});
   }
 
   // Generate JWT Token
